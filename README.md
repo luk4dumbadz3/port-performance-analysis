@@ -1,86 +1,55 @@
-# Port Performance Analysis Tool
+# Seafarer Management System
 
-This project provides a comprehensive suite of tools for analyzing port performance metrics, including vessel turnaround times, berth occupancy, and container dwell times.
+A simple application to manage seafarer data, available as both a command-line interface and a web application.
 
 ## Features
 
-- Calculate average vessel turnaround times
-- Analyze container dwell times
-- Generate visualizations of turnaround time distributions
-- Create interactive shipping route maps
-- Calculate berth occupancy rates
-- Determine Economic Order Quantity (EOQ)
-- SQL queries for vessel data analysis
+- Add new crew members with details like name, rank, nationality, etc.
+- View all crew members in a formatted table
+- Delete crew members
+- Save data to a JSON file
+- Load data from a JSON file when the application starts
 
-## Installation
+## Command-Line Interface
 
-1. Clone the repository
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+1. Run the application:
+   ```
+   python seafarer_manager.py
+   ```
 
-## Usage
+2. Use the menu options:
+   - Option 1: Add a new crew member
+   - Option 2: View all crew members
+   - Option 3: Save data to file
+   - Option 4: Exit the application
 
-### Python Functions
+## Web Interface
 
-```python
-from port_analysis import (
-    calculate_turnaround_time,
-    analyze_container_dwell_times,
-    create_turnaround_histogram,
-    create_route_map,
-    calculate_berth_occupancy,
-    calculate_eoq
-)
+1. Install the required dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-# Example usage:
-# df = pd.read_csv('vessel_data.csv')
-# avg_turnaround = calculate_turnaround_time(df)
-```
+2. Run the Flask application:
+   ```
+   python app.py
+   ```
 
-### SQL Queries
+3. Open your web browser and navigate to:
+   ```
+   http://127.0.0.1:5000/
+   ```
 
-The `port_queries.sql` file contains various SQL queries for analyzing vessel data. These can be executed in your preferred SQL database management system.
+4. Use the web interface to:
+   - View all crew members
+   - Add new crew members
+   - Delete crew members
 
-## Key Concepts
+## Data Storage
 
-### Berth Occupancy
-Berth occupancy refers to the percentage of time that a berth is occupied by vessels. It's calculated as:
-```
-Occupancy Rate = (Total time berth is occupied / Total available time) × 100
-```
+Both interfaces use the same JSON file (`crew_data.json`) to store crew member data, so you can switch between interfaces and your data will be preserved.
 
-### Gross Tonnage vs Deadweight Tonnage
-- **Gross Tonnage**: A measure of the vessel's total internal volume
-- **Deadweight Tonnage**: The maximum weight a vessel can carry (cargo, fuel, water, etc.)
+## Requirements
 
-### Economic Order Quantity (EOQ)
-EOQ is calculated using the formula:
-```
-EOQ = √(2 × Annual Demand × Ordering Cost / Holding Cost)
-```
-
-## Data Requirements
-
-The analysis functions expect the following data formats:
-
-1. Vessel Data:
-   - Arrival_Time (datetime)
-   - Departure_Time (datetime)
-   - vessel_id (string)
-   - vessel_type (string)
-
-2. Container Data:
-   - dwell_time (float)
-   - container_id (string)
-
-3. Route Data:
-   - start_lat (float)
-   - start_lon (float)
-   - end_lat (float)
-   - end_lon (float)
-
-## Contributing
-
-Feel free to submit issues and enhancement requests! 
+- Python 3.6 or higher
+- Flask (for web interface) 
